@@ -88,7 +88,7 @@ int main(int argc, char **argv) {
 
     while (true) {
         int option_index{0};
-        static struct option long_options[] = {
+        static struct option long_options[] {
             {"help", no_argument, nullptr, 'h'},
             {"version", no_argument, nullptr, 'v'},
         };
@@ -97,7 +97,7 @@ int main(int argc, char **argv) {
 
         switch (c) {
             case 'n': {
-                auto a = std::strtoll(optarg, nullptr, 0);
+                auto a{ std::strtoll(optarg, nullptr, 0) };
                 if (a <= 0) { std::cerr << "roll: invalid amount argument"; return 1; }
                 if (amount != std::numeric_limits<long long>::max()) { amount = a; }
                 break;
@@ -124,8 +124,8 @@ int main(int argc, char **argv) {
     }
 
     if (list.size() == 1) {
-        auto f = list.front();
-        auto d = std::strtoll(f, nullptr, 0);
+        auto f{ list.front() };
+        auto d{ std::strtoll(f, nullptr, 0) };
         if (d <= 0) { std::cerr << "roll: invalid number of die sides '" << f << "'\n"; return 1; }
         printDie(mt, d, zero);
         return 0;
