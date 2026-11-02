@@ -6,7 +6,7 @@ A fast CLI dice roller and random sampler utility.
 
 `git clone https://github.com/quxio/Roll.git && cd Roll && make && sudo make install`
 
-**requirements**: \[ C++17, ]
+**requirements**: \[ C++17, nil ]
 
 # Usage
 
